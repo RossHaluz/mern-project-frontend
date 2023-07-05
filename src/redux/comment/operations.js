@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// http://localhost:3005
+
 axios.defaults.baseURL = 'https://blog-t4w3.onrender.com'
 
 export const createNewComment = createAsyncThunk('api/createNewComment', async (params, {rejectWithValue}) => {

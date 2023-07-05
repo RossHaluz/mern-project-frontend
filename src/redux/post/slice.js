@@ -69,8 +69,8 @@ extraReducers: {
         state.loading = true;
     },
     [setFavoritePost.fulfilled](state, action){
+        console.log(action.payload);
         state.loading = false
-
     }
 }
 })

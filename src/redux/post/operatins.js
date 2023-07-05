@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// http://localhost:3005
+
 axios.defaults.baseURL = 'https://blog-t4w3.onrender.com'
 
 export const createPost = createAsyncThunk('post/createPost', async (params, {rejectWithValue}) => {
@@ -61,8 +63,10 @@ export const updatePost = createAsyncThunk('api/updatePost', async (params, {rej
 export const setFavoritePost = createAsyncThunk('api/setFevoritePosts', async (postId, {rejectWithValue}) => {
 try {
     const {data} = await axios.post(`/api/posts/favorite/${postId}`)
+    console.log(data);
     return data
 } catch (error) {
+    console.log(error);
     return rejectWithValue(error.message)
 }
 })
