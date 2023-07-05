@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/675.547a6992.chunk.js","mappings":"2JAQA,UARkB,WAChB,OACE,kBAIH,C","sources":["pages/SavePosts.jsx"],"sourcesContent":["const SavePosts = () => {\n  return (\n    <div>\n      \n    </div>\n  )\n}\n\nexport default SavePosts\n"],"names":[],"sourceRoot":""}
