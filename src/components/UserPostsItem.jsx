@@ -9,7 +9,7 @@ const UserPostsItem = ({post}) => {
   return  <li className='flex flex-col basis-1/4 gap-5 flex-grow border-solid border-2 p-3 rounded-lg relative'>
   <Link to={`/${id}`}>
   {imgUrl && <div className='p-2 rounded-lg flex h-80'>
-    <img src={`http://localhost:3005/${imgUrl}`} alt={imgUrl.name} className='rounded-2xl object-cover w-full'/>
+    <img src={`https://blog-t4w3.onrender.com/${imgUrl}`} alt={imgUrl.name} className='rounded-2xl object-cover w-full'/>
   </div>}
   <div className='flex justify-between items-center mt-5'>
     <span className='text-xs text-[#030303] opacity-50'>автор: {username}</span>

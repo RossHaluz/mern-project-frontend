@@ -7,7 +7,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
 
 const MainePage = lazy(() => import('../src/pages/MainePage'));
-
 const PostsPage = lazy(() => import('../src/pages/PostsPage'));
 const PostPage = lazy(() => import('../src/pages/PostPage'));
 const EdditPostPage = lazy(() => import('../src/pages/EdditPostPage'));

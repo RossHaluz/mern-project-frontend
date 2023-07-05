@@ -21,7 +21,7 @@ const PostItem = ({ item }) => {
 
   const addFavoritePost = id => {
     dispatch(setFavoritePost(id))
-    toast.success('Посте збережений в улюблені')
+    toast.success('Пост доданий у збережені')
   }
 
   return (
@@ -30,7 +30,7 @@ const PostItem = ({ item }) => {
         {imgUrl && (
           <div className="p-2 rounded-lg flex h-80">
             <img
-              src={`http://localhost:3005/${imgUrl}`}
+              src={`https://blog-t4w3.onrender.com/${imgUrl}`}
               alt={imgUrl.name}
               className="rounded-2xl object-cover w-full"
             />

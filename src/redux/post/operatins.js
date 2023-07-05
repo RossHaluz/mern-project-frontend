@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:3005'
+axios.defaults.baseURL = 'https://blog-t4w3.onrender.com'
 
 export const createPost = createAsyncThunk('post/createPost', async (params, {rejectWithValue}) => {
     try {
