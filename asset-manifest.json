@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/mern-project-frontend/static/css/main.5eaa623e.css",
+    "main.css": "/mern-project-frontend/static/css/main.1e5f28db.css",
     "main.js": "/mern-project-frontend/static/js/main.bb40ade5.js",
     "static/js/294.528f43ad.chunk.js": "/mern-project-frontend/static/js/294.528f43ad.chunk.js",
     "static/js/235.cd2c27e0.chunk.js": "/mern-project-frontend/static/js/235.cd2c27e0.chunk.js",
@@ -14,7 +14,7 @@
     "static/js/126.2032a959.chunk.js": "/mern-project-frontend/static/js/126.2032a959.chunk.js",
     "static/js/568.563d4e46.chunk.js": "/mern-project-frontend/static/js/568.563d4e46.chunk.js",
     "index.html": "/mern-project-frontend/index.html",
-    "main.5eaa623e.css.map": "/mern-project-frontend/static/css/main.5eaa623e.css.map",
+    "main.1e5f28db.css.map": "/mern-project-frontend/static/css/main.1e5f28db.css.map",
     "main.bb40ade5.js.map": "/mern-project-frontend/static/js/main.bb40ade5.js.map",
     "294.528f43ad.chunk.js.map": "/mern-project-frontend/static/js/294.528f43ad.chunk.js.map",
     "235.cd2c27e0.chunk.js.map": "/mern-project-frontend/static/js/235.cd2c27e0.chunk.js.map",
@@ -29,7 +29,7 @@
     "568.563d4e46.chunk.js.map": "/mern-project-frontend/static/js/568.563d4e46.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5eaa623e.css",
+    "static/css/main.1e5f28db.css",
     "static/js/main.bb40ade5.js"
   ]
 }
