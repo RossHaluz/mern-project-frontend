@@ -52,14 +52,14 @@ return () => {
             type="text"
             name="username"
             placeholder="Username"
-            className="border-2 py-2 px-2 w-1/4 text-gray-600"
+            className="w-full border-2 py-2 px-2 md:w-1/4 text-gray-600"
           />
           <ErrorMessage component='p' className="text-red-600 text-sm" name="username" />
           <Field
             type="password"
             name="password"
             placeholder="Password"
-            className="border-2 py-2 px-2 w-1/4 text-gray-600"
+            className="w-full border-2 py-2 px-2 md:w-1/4 text-gray-600"
           />
            <ErrorMessage name="password" component='p' className="text-red-600 text-sm" />
           <div className="flex flex-col gap-4 mt-4 items-center">

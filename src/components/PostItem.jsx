@@ -1,10 +1,11 @@
 import { AiFillEye, AiOutlineMessage } from "react-icons/ai";
-import { BsBookmark } from "react-icons/bs";
+import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 import Moment from "react-moment";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { setFavoritePost } from "../redux/post/operatins";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { removeFromFavorite, setFavoritePost } from "../redux/post/operatins";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const PostItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -13,15 +14,32 @@ const PostItem = ({ item }) => {
     text,
     imgUrl,
     username,
+    favorites,
     createdAt,
     views,
     comments,
     _id: id,
   } = item;
+  const {user, isUserLogin} = useSelector(state => state.auth);
+  const [isFavorite, setIsFavorite] = useState(favorites?.includes(user?._id));
+  const navigate = useNavigate();
 
   const addFavoritePost = id => {
+    if(!isUserLogin){
+      toast.error("Щоб додати пост, ви маєте зайти у свій кабінет")
+      navigate('/login')
+      return;
+    }
+
     dispatch(setFavoritePost(id))
+    setIsFavorite(true)
     toast.success('Пост доданий у збережені')
+  }
+
+  const removeFavoritePost = id => {
+    dispatch(removeFromFavorite(id))
+    setIsFavorite(false)
+    toast.error('Пост видалений із збережених')
   }
 
   return (
@@ -67,9 +85,11 @@ const PostItem = ({ item }) => {
           </div>
         </div>
       </Link>
-      <button className="absolute bottom-5 right-5 text-lg" onClick={() => addFavoritePost(id)}>
+      {isFavorite ?  <button className="absolute bottom-5 right-5 text-lg" onClick={() => removeFavoritePost(id)}>
+          <BsFillBookmarkFill/>
+          </button> :  <button className="absolute bottom-5 right-5 text-lg" onClick={() => addFavoritePost(id)}>
           <BsBookmark/>
-          </button>
+          </button>}
     </li>
   );
 };

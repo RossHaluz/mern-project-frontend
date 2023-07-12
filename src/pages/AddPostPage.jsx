@@ -29,7 +29,7 @@ const AddPostPage = () => {
 
   return (
     <form
-      className="w-1/2 mx-auto py-10 flex flex-col gap-4"
+      className="w-full md:w-1/2 mx-auto py-10 flex flex-col gap-4"
       onSubmit={handleFormSubmit}
     >
       <label className="text-gray-300 bg-gray-600 text-sm flex justify-center items-center border-2 border-dotted cursor-pointer py-4">

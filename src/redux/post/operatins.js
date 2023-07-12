@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // http://localhost:3005
+//https://blog-t4w3.onrender.com
 
 axios.defaults.baseURL = 'https://blog-t4w3.onrender.com'
 
@@ -69,4 +70,22 @@ try {
     console.log(error);
     return rejectWithValue(error.message)
 }
+})
+
+export const removeFromFavorite = createAsyncThunk('api/removeFromFavorite', async(postId, {rejectWithValue}) => {
+    try {
+        const {data} = await axios.post(`/api/posts/favorite-remove/${postId}`)
+        return data
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
+})
+
+export const getFavoritePosts = createAsyncThunk('api/getFavoritePosts', async(__, {rejectWithValue}) => {
+    try {
+        const {data} = await axios.get('/api/posts/favorite')
+        return data;
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
 })

@@ -68,7 +68,7 @@ const PostPageDetails = ({post, id}) => {
 
   </div>
 </div>}
-<div className='w-[450px] mt-3 flex flex-col gap-3'>
+<div className='w-full md:w-[450px] mt-3 flex flex-col gap-3'>
   <h2 className='text-lg text-[#030303] opacity-80 '>Залишити коментарії</h2>
   <form onSubmit={handleCommentSubmit}>
     <textarea type="text" value={comment} onChange={e => setComment(e.target.value)} placeholder='Напишіть коментаррії' className='border-2 border-solid border-[#030303] text-xs text-[#030303] w-full p-3 resize-none outline-none '/>
