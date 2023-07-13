@@ -7,6 +7,7 @@ const AddPostPage = () => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
+  const [category, setCategory] = useState("JavaScript");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ const AddPostPage = () => {
     data.append("title", title);
     data.append("text", text);
     data.append("image", image);
+    data.append("category", category)
     dispatch(createPost(data));
     navigate("/posts");
     clearFormHandler();
@@ -45,6 +47,15 @@ const AddPostPage = () => {
           <img src={URL.createObjectURL(image)} alt="Post img" />
         </div>
       )}
+      <label className="text-lg text-[#030303] opacity-70">
+        Виберіть категорію
+        <select name="select" value={category} onChange={e => setCategory(e.target.value)}>
+          <option value='JavaScript'>JavaScript</option>
+          <option value='React.js'>React.js</option>
+          <option value='Node.js'>Node.js</option>
+          <option value='MongoDB'>MongoDB</option>
+        </select>
+      </label>
       <label className="text-lg text-[#030303] opacity-70">
         Заголовок
         <input

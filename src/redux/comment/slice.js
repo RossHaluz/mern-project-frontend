@@ -22,7 +22,6 @@ const commentSlice = createSlice({
             state.loading = true;
         },
         [getAllComments.fulfilled](state, action){
-            console.log(action.payload);
             state.loading = false;
             state.comments = action.payload;
         }

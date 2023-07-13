@@ -14,7 +14,8 @@ const EdditPostPage = lazy(() => import('../src/pages/EdditPostPage'));
 const LoginPage = lazy(() => import('../src/pages/LoginPage'));
 const RegisterPage = lazy(() => import('../src/pages/RegisterPage'));
 const AddPostPage = lazy(() => import('../src/pages/AddPostPage'));
-const SavePosts = lazy(() => import('../src/pages/SavePosts'))
+const SavePosts = lazy(() => import('../src/pages/SavePosts'));
+const CategoryPage = lazy(() => import('../src/pages/CategoryPage'));
 
 
 function App() {
@@ -36,6 +37,7 @@ dispatch(getCurrentUser())
     <Route path="register" element={<RestrictedRoute component={<RegisterPage/>} redirectTo="/"/>}/>
     <Route path="new" element={<PrivateRoute component={<AddPostPage/>} redirectTo="/login"/>}/>
     <Route path="save-posts" element={<PrivateRoute component={<SavePosts/>} redirectTo="/login"/>}/>
+    <Route path=":category" element={<CategoryPage/>} />
   </Route>
 </Routes>
 {isOpen && <MobileMenu setIsOpen={setIsOpen}/>}

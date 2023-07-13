@@ -4,7 +4,7 @@ import axios from "axios";
 // http://localhost:3005
 //https://blog-t4w3.onrender.com
 
-axios.defaults.baseURL = 'https://blog-t4w3.onrender.com'
+axios.defaults.baseURL = 'http://localhost:3005'
 
 export const createNewComment = createAsyncThunk('api/createNewComment', async (params, {rejectWithValue}) => {
    const {id, comment} = params;
