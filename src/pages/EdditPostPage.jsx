@@ -30,9 +30,9 @@ const handleCansel = () => {
   navigate('/posts')
 }
 
-  return <div className="flex mt-10 m-auto w-[650px]">
+  return <div className="flex mt-10 m-auto w-full md:w-[650px]">
     <form className="flex flex-col gap-3 w-full" onSubmit={handleFormSubmit}>
-      {!!currentImg && !image ? <img src={`http://localhost:3005/${currentImg}`} alt="Post img" /> : <img src={URL.createObjectURL(image)} alt="Post img" />}
+      {!!currentImg && !image ? <img src={`https://blog-t4w3.onrender.com/${currentImg}`} alt="Post img" /> : <img src={URL.createObjectURL(image)} alt="Post img" />}
     <label className="text-gray-300 bg-gray-600 text-sm flex justify-center items-center border-2 border-dotted cursor-pointer py-4">
         Змінити зображення
         <input
