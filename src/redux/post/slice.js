@@ -95,6 +95,7 @@ extraReducers: {
     },
     [getCategoryPosts.fulfilled](state, action){
         state.loading = false;
+        state.posts = action.payload
     }
 }
 })
