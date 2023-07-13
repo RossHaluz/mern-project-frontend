@@ -5,13 +5,14 @@ import { useEffect } from "react"
 import { getPost } from "../redux/post/operatins"
 
 const PostPage = () => {
-const {id} = useParams()
-const dispatch = useDispatch()
-const {post} = useSelector(state => state.post)
+const {id} = useParams();
+const dispatch = useDispatch();
+const {post} = useSelector(state => state.post);
 
 useEffect(() => {
 dispatch(getPost(id))
 }, [id, dispatch])
+
 
   return <>{!!post && <PostPageDetails post={post} id={id}/>}</>
 }

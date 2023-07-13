@@ -4,7 +4,7 @@ import axios from "axios";
 // http://localhost:3005
 //https://blog-t4w3.onrender.com
 
-axios.defaults.baseURL = 'http://localhost:3005'
+axios.defaults.baseURL = 'https://blog-t4w3.onrender.com'
 
 export const createPost = createAsyncThunk('post/createPost', async (params, {rejectWithValue}) => {
     try {
@@ -92,7 +92,7 @@ export const getFavoritePosts = createAsyncThunk('api/getFavoritePosts', async(_
 
 export const getCategoryPosts = createAsyncThunk('api/getCategoryPosts', async(category, {rejectWithValue}) => {
     try {
-        const {data} = await axios.get(`/api/posts/${category}`)
+        const {data} = await axios.get(`/api/posts/category/${category}`)
         return data
     } catch (error) {
         return rejectWithValue(error.message)

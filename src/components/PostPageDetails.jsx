@@ -3,26 +3,25 @@ import Moment from 'react-moment'
 import { useDispatch, useSelector } from 'react-redux'
 import { delateUserPost } from '../redux/post/operatins'
 import { toast } from 'react-toastify'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { createNewComment, getAllComments } from '../redux/comment/operations'
 import { useEffect, useState } from 'react'
 import CommentsList from './CommentsList'
 
-const PostPageDetails = ({post, id}) => {
+const PostPageDetails = ({post, id: postId}) => {
   const dispatch = useDispatch()
   const {loading} = useSelector(state => state.post)
   const {user} = useSelector(state => state.auth);
   const {comments: userComments} = useSelector(state => state.comment);
   const navigate = useNavigate();
   const [comment, setComment] = useState('')
-  const {id: postId} = useParams()
 
   useEffect(() => {
     dispatch(getAllComments(postId))
   }, [dispatch, postId])
 
   const removePost = () => {
-    dispatch(delateUserPost(id))
+    dispatch(delateUserPost(postId))
     toast.success('Пост успішно видалений')
     navigate('/')
 
@@ -30,11 +29,11 @@ const PostPageDetails = ({post, id}) => {
 
   const handleCommentSubmit = (e) => {
     e.preventDefault()
-    dispatch(createNewComment({id, comment}))
+    dispatch(createNewComment({postId, comment}))
     setComment('')
   }
 
-  const {title, text, imgUrl, username, createdAt, views, comments} = post
+  const {title, text, imgUrl, username, createdAt, views, comments} = post;
   return <div className='flex flex-col gap-5 py-3'>{!loading && <div className='mt-4'>
   {imgUrl && <div className='flex h-80'>
     <img src={`https://blog-t4w3.onrender.com/${imgUrl}`} alt={imgUrl.name} className='rounded-2xl object-contain w-full'/>
@@ -58,7 +57,7 @@ const PostPageDetails = ({post, id}) => {
     </div>
 
    {user?._id === post?.author && <div className='flex gap-3'>
-    <Link to={`/${id}/eddit`} className='flex items-center justify-center gap-2 text-lg text-[#030303] opacity-50'>
+    <Link to={`/${postId}/eddit`} className='flex items-center justify-center gap-2 text-lg text-[#030303] opacity-50'>
       <AiTwotoneEdit/>
     </Link>
     <button type='button' onClick={removePost} className='flex items-center  text-lg justify-center gap-2 text-[#030303] opacity-50'>

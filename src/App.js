@@ -30,6 +30,7 @@ dispatch(getCurrentUser())
   <Routes>
   <Route path="/" element={<Loyaut setIsOpen={setIsOpen}/>}>
     <Route index element={<MainePage/>}/>
+    <Route path="category/:category" element={<CategoryPage/>} />
     <Route path="posts" element={<PrivateRoute component={<PostsPage/>} redirectTo="/login"/>}/>
     <Route path=":id" element={<PostPage/>}/>
     <Route path=":id/eddit" element={<PrivateRoute component={<EdditPostPage/>} redirectTo="/login"/>}/>
@@ -37,7 +38,6 @@ dispatch(getCurrentUser())
     <Route path="register" element={<RestrictedRoute component={<RegisterPage/>} redirectTo="/"/>}/>
     <Route path="new" element={<PrivateRoute component={<AddPostPage/>} redirectTo="/login"/>}/>
     <Route path="save-posts" element={<PrivateRoute component={<SavePosts/>} redirectTo="/login"/>}/>
-    <Route path=":category" element={<CategoryPage/>} />
   </Route>
 </Routes>
 {isOpen && <MobileMenu setIsOpen={setIsOpen}/>}

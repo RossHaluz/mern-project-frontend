@@ -5,7 +5,7 @@ import axios from "axios";
 //https://blog-t4w3.onrender.com
 
 
-axios.defaults.baseURL = 'http://localhost:3005'
+axios.defaults.baseURL = 'https://blog-t4w3.onrender.com'
 
 const setAuthHeader = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`
