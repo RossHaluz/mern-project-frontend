@@ -26,11 +26,11 @@ const FavoritePostItem = ({item}) => {
   return  <li className="flex flex-col basis-1/4 gap-5 flex-grow border-solid border-2 p-3 rounded-lg relative">
     <Link to={`/${id}`}>
     {imgUrl && (
-          <div className="p-2 rounded-lg flex h-80">
+          <div className="p-2 rounded-lg flex h-[11rem] mb:h-80">
             <img
-              src={`http://localhost:3005/${imgUrl}`}
+              src={`https://blog-t4w3.onrender.com/${imgUrl}`}
               alt={imgUrl.name}
-              className="rounded-2xl object-cover w-full"
+              className="object-contain rounded-2xl md:object-cover w-full"
             />
           </div>
         )}
