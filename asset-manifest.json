@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mern-project-frontend/static/css/main.a4ab922c.css",
-    "main.js": "/mern-project-frontend/static/js/main.536cff83.js",
+    "main.js": "/mern-project-frontend/static/js/main.a55b2dd4.js",
     "static/js/758.92ecaa6a.chunk.js": "/mern-project-frontend/static/js/758.92ecaa6a.chunk.js",
     "static/js/235.2bfeac3f.chunk.js": "/mern-project-frontend/static/js/235.2bfeac3f.chunk.js",
     "static/js/147.fe280ec2.chunk.js": "/mern-project-frontend/static/js/147.fe280ec2.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/432.61e71909.chunk.js": "/mern-project-frontend/static/js/432.61e71909.chunk.js",
     "static/js/536.5f198c05.chunk.js": "/mern-project-frontend/static/js/536.5f198c05.chunk.js",
     "static/js/353.68c51d97.chunk.js": "/mern-project-frontend/static/js/353.68c51d97.chunk.js",
-    "static/js/286.f4a301de.chunk.js": "/mern-project-frontend/static/js/286.f4a301de.chunk.js",
+    "static/js/286.af1aa937.chunk.js": "/mern-project-frontend/static/js/286.af1aa937.chunk.js",
     "static/js/431.edd7cdf5.chunk.js": "/mern-project-frontend/static/js/431.edd7cdf5.chunk.js",
     "static/js/126.2032a959.chunk.js": "/mern-project-frontend/static/js/126.2032a959.chunk.js",
     "static/js/568.563d4e46.chunk.js": "/mern-project-frontend/static/js/568.563d4e46.chunk.js",
     "index.html": "/mern-project-frontend/index.html",
     "main.a4ab922c.css.map": "/mern-project-frontend/static/css/main.a4ab922c.css.map",
-    "main.536cff83.js.map": "/mern-project-frontend/static/js/main.536cff83.js.map",
+    "main.a55b2dd4.js.map": "/mern-project-frontend/static/js/main.a55b2dd4.js.map",
     "758.92ecaa6a.chunk.js.map": "/mern-project-frontend/static/js/758.92ecaa6a.chunk.js.map",
     "235.2bfeac3f.chunk.js.map": "/mern-project-frontend/static/js/235.2bfeac3f.chunk.js.map",
     "147.fe280ec2.chunk.js.map": "/mern-project-frontend/static/js/147.fe280ec2.chunk.js.map",
@@ -25,13 +25,13 @@
     "432.61e71909.chunk.js.map": "/mern-project-frontend/static/js/432.61e71909.chunk.js.map",
     "536.5f198c05.chunk.js.map": "/mern-project-frontend/static/js/536.5f198c05.chunk.js.map",
     "353.68c51d97.chunk.js.map": "/mern-project-frontend/static/js/353.68c51d97.chunk.js.map",
-    "286.f4a301de.chunk.js.map": "/mern-project-frontend/static/js/286.f4a301de.chunk.js.map",
+    "286.af1aa937.chunk.js.map": "/mern-project-frontend/static/js/286.af1aa937.chunk.js.map",
     "431.edd7cdf5.chunk.js.map": "/mern-project-frontend/static/js/431.edd7cdf5.chunk.js.map",
     "126.2032a959.chunk.js.map": "/mern-project-frontend/static/js/126.2032a959.chunk.js.map",
     "568.563d4e46.chunk.js.map": "/mern-project-frontend/static/js/568.563d4e46.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a4ab922c.css",
-    "static/js/main.536cff83.js"
+    "static/js/main.a55b2dd4.js"
   ]
 }
