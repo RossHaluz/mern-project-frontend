@@ -98,3 +98,13 @@ export const getCategoryPosts = createAsyncThunk('api/getCategoryPosts', async(c
         return rejectWithValue(error.message)
     }
     })
+
+    export const getSearchCategory = createAsyncThunk('api/getSearchCategory', async (params, {rejectWithValue}) => {
+        const {category, searchName} = params;
+        try {
+            const {data} = await axios.get(`/api/posts/category-search/${category}?query=${searchName}`);
+            return data
+        } catch (error) {
+            return rejectWithValue(error.message)
+        }
+    })

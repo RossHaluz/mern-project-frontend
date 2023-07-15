@@ -3,13 +3,6 @@ import PostItem from "./PostItem"
 import { Link } from "react-router-dom"
 
 const PostsList = ({posts}) => {
-// const [isSelect, setIsSelect] = useState('')
-
-// const checkCategory = value => {
-//   setIsSelect(value)
-// }
-
-// console.log(isSelect);
 
   return  <div className="w-full flex flex-col gap-6 md:basis-4/5">
   <ul className="flex justify-center gap-3 flex-wrap md:hidden">

@@ -1,15 +1,27 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { getSearchCategory } from 'redux/post/operatins';
 
 const CategorySearch = () => {
-const [query, setQuery] = useState('')
+  const dispatch = useDispatch();
+const {category} = useParams();
+const [query, setQuery] = useSearchParams();
+const searchName = query.get('query') || "";
 
-const handleSubmitSearch = e => {
-    e.preventDefault()
+
+const handleOnChangeForm = query => {
+  const searchQuery = query !== "" ? {query} : {}
+  setQuery(searchQuery)
 }
 
-  return <form className="lg:w-[30%] lg:flex lg:m-auto lg:my-5 my-5 w-full relative" onSubmit={handleSubmitSearch}>
-  <input type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Пошук" name="search" className='w-full h-auto py-4 px-4 text-xs border border-solid-gray-500 rounded-[50px] outline-none'/>
+useEffect(() => {
+  dispatch(getSearchCategory({category, searchName}))
+}, [dispatch, category, searchName])
+
+  return <form className="lg:w-[30%] lg:flex lg:m-auto lg:my-5 my-5 w-full relative" >
+  <input type="search" placeholder="Пошук" name="searchName" value={searchName} onChange={e => handleOnChangeForm(e.target.value)} className='w-full h-auto py-4 px-4 text-xs border border-solid-gray-500 rounded-[50px] outline-none'/>
   <button type="submit" className='absolute top-4 right-5 text-[18px]'><AiOutlineSearch/></button>
 </form>
 

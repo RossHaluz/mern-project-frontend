@@ -1,8 +1,9 @@
 import CategoryList from "components/CategoryList"
+import CategorySearch from "components/CategorySearch";
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { getCategoryPosts } from "redux/post/operatins"
+import { getCategoryPosts } from "redux/post/operatins";
 
 const CategoryPage = () => {
 const dispatch = useDispatch();
@@ -13,7 +14,10 @@ useEffect(() => {
 dispatch(getCategoryPosts(category))
 }, [dispatch, category, favoritePosts])
 
-  return <>{posts.length > 0 && <CategoryList posts={posts}/>}</>
+  return <>
+   <CategorySearch />
+  {posts.length > 0 && <CategoryList posts={posts}/>}
+  </>
 }
 
 export default CategoryPage
