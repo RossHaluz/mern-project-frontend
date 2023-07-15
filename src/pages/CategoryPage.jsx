@@ -7,11 +7,11 @@ import { getCategoryPosts } from "redux/post/operatins"
 const CategoryPage = () => {
 const dispatch = useDispatch();
 const {category} = useParams();
-const {posts} = useSelector(state => state.post);
+const {posts, favoritePosts} = useSelector(state => state.post);
 
 useEffect(() => {
 dispatch(getCategoryPosts(category))
-}, [dispatch, category])
+}, [dispatch, category, favoritePosts])
 
   return <>{posts.length > 0 && <CategoryList posts={posts}/>}</>
 }

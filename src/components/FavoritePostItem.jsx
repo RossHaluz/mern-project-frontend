@@ -1,31 +1,51 @@
-import { Link } from "react-router-dom"
 import { AiFillEye, AiOutlineMessage } from "react-icons/ai";
+import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 import Moment from "react-moment";
-import { useDispatch } from "react-redux";
-import { removeFromFavorite } from "redux/post/operatins";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { removeFromFavorite, setFavoritePost } from "../redux/post/operatins";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const FavoritePostItem = ({item}) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const {
     title,
     text,
     imgUrl,
     username,
+    favorites,
     createdAt,
     views,
     comments,
     _id: id,
   } = item;
+  const {user, isUserLogin} = useSelector(state => state.auth);
+  const [isFavorite, setIsFavorite] = useState(favorites?.includes(user?._id));
+  const navigate = useNavigate();
 
-  const removePostFromFavorite = id => {
-    dispatch(removeFromFavorite(id))
-    toast.error("Пост видалений із збережених")
+  const addFavoritePost = id => {
+    if(!isUserLogin){
+      toast.error("Щоб додати пост, ви маєте зайти у свій кабінет")
+      navigate('/login')
+      return;
+    }
+
+    dispatch(setFavoritePost(id))
+    setIsFavorite(true)
+    toast.success('Пост доданий у збережені')
   }
 
-  return  <li className="flex flex-col basis-1/4 gap-5 flex-grow border-solid border-2 p-3 rounded-lg relative">
-    <Link to={`/${id}`}>
-    {imgUrl && (
+  const removeFavoritePost = id => {
+    dispatch(removeFromFavorite(id))
+    setIsFavorite(false)
+    toast.error('Пост видалений із збережених')
+  }
+
+  return (
+    <li className="flex flex-col basis-1/4 gap-5 flex-grow border-solid border-2 p-3 rounded-lg relative">
+      <Link to={`/${id}`}>
+        {imgUrl && (
           <div className="p-2 rounded-lg flex h-[11rem] mb:h-80">
             <img
               src={`https://blog-t4w3.onrender.com/${imgUrl}`}
@@ -34,7 +54,7 @@ const FavoritePostItem = ({item}) => {
             />
           </div>
         )}
-         <div className="flex justify-between items-center mt-5">
+        <div className="flex justify-between items-center mt-5">
           <span className="text-xs text-[#030303] opacity-50">
             автор: {username}
           </span>
@@ -64,10 +84,14 @@ const FavoritePostItem = ({item}) => {
           </button>
           </div>
         </div>
-    </Link>
-
-    <button className="text-xs text-white bg-red-600 py-2 px-4 rounded-lg absolute bottom-5 right-5" onClick={() => removePostFromFavorite(id)}>Видалити із збережених</button>
-  </li>
-}
+      </Link>
+      {isFavorite ?  <button type="button" className="absolute bottom-5 right-5 text-lg" onClick={() => removeFavoritePost(id)}>
+          <BsFillBookmarkFill/>
+          </button> :  <button type="button" className="absolute bottom-5 right-5 text-lg" onClick={() => addFavoritePost(id)}>
+          <BsBookmark/>
+          </button>}
+    </li>
+  );
+};
 
 export default FavoritePostItem
