@@ -1,10 +1,37 @@
 import {AiFillEye, AiOutlineMessage} from 'react-icons/ai'
 import Moment from 'react-moment'
-import { Link } from 'react-router-dom'
-import { BsBookmark } from "react-icons/bs";
+import { Link, useNavigate } from 'react-router-dom'
+import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
+import { removeFromFavorite, setFavoritePost } from "../redux/post/operatins";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const UserPostsItem = ({post}) => {
-    const {title, text, imgUrl, username, createdAt, views, comments, _id: id} = post
+    const {title, text, imgUrl, username, favorites, createdAt, views, comments, _id: id} = post
+
+    const {user, isUserLogin} = useSelector(state => state.auth);
+    const [isFavorite, setIsFavorite] = useState(favorites?.includes(user?._id));
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+  
+    const addFavoritePost = id => {
+      if(!isUserLogin){
+        toast.error("Щоб додати пост, ви маєте зайти у свій кабінет")
+        navigate('/login')
+        return;
+      }
+  
+      dispatch(setFavoritePost(id))
+      setIsFavorite(true)
+      toast.success('Пост доданий у збережені')
+    }
+  
+    const removeFavoritePost = id => {
+      dispatch(removeFromFavorite(id))
+      setIsFavorite(false)
+      toast.error('Пост видалений із збережених')
+    }
 
   return  <li className='flex flex-col basis-1/4 gap-5 flex-grow border-solid border-2 p-3 rounded-lg relative'>
   <Link to={`/${id}`}>
@@ -36,9 +63,11 @@ const UserPostsItem = ({post}) => {
           </div>
         </div>
   </Link>
-  <button className="absolute bottom-5 right-5 text-lg">
+  {isFavorite ?  <button className="absolute bottom-5 right-5 text-lg" onClick={() => removeFavoritePost(id)}>
+          <BsFillBookmarkFill/>
+          </button> :  <button className="absolute bottom-5 right-5 text-lg" onClick={() => addFavoritePost(id)}>
           <BsBookmark/>
-          </button>
+          </button>}
 </li>
 }
 

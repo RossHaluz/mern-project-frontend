@@ -9,7 +9,7 @@ const dispatch = useDispatch()
 
 useEffect(() => {
   dispatch(getFavoritePosts())
-}, [dispatch])
+}, [dispatch, favoritePosts])
 
   return <>{favoritePosts.length === 0 ? <h3 className="flex justify-center mt-8">Немає збережених постів</h3> : <FavoritePosts favoritePosts={favoritePosts}/>}</>
 }
