@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createPost, getAllPosts, getPost, getUserPosts, delateUserPost, updatePost, setFavoritePost, removeFromFavorite, getFavoritePosts, getCategoryPosts, getSearchCategory } from "./operatins";
+import { createPost, getAllPosts, getPost, getUserPosts, delateUserPost, updatePost, setFavoritePost, removeFromFavorite, getFavoritePosts, getCategoryPosts, getSearchCategory, getSearchPosts } from "./operatins";
 
 const initialState = {
     posts: [],
@@ -103,6 +103,13 @@ extraReducers: {
     [getSearchCategory.fulfilled](state, action){
         state.loading = false;
         state.posts = action.payload;
+    },
+    [getSearchPosts.pending](state, action){
+        state.loading = true;
+    },
+    [getSearchPosts.fulfilled](state, action){
+        console.log(action.payload);
+        state.loading = false;
     }
 }
 })

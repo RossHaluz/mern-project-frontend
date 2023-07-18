@@ -7,7 +7,7 @@ import { removeStatus } from '../redux/auth/slice';
 import { FiMenu } from 'react-icons/fi';
 
 const NavBar = ({setIsOpen}) => {
-const {isUserLogin, isLoading, status} = useSelector(state => state.auth);
+const {isUserLogin, status} = useSelector(state => state.auth);
 const dispatch = useDispatch()
 
 
@@ -65,14 +65,12 @@ const logoutHandler = () => {
   <FiMenu/>
 </button>
 
-      {!isLoading && <>
       {isUserLogin ? <div className="hidden md:flex gap-8 justify-center items-center px-4 py-2 text-sm bg-gray-600 text-white rounded-xl hover:bg-gray-800">
         <button type='button' onClick={logoutHandler}>Log out</button>
       </div> :   <div className='hidden md:flex  gap-4 items-center'>
     <NavLink to='/login' style={({isActive}) => isActive ? activeStylesAuth : undefined }>Log in</NavLink>
       <NavLink to='/register' style={({isActive}) => isActive ? activeStylesAuth : undefined }>Sign in</NavLink>
     </div> }
-    </>}
     </div>
   )
 }
