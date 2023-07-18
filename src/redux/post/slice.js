@@ -108,8 +108,8 @@ extraReducers: {
         state.loading = true;
     },
     [getSearchPosts.fulfilled](state, action){
-        console.log(action.payload);
         state.loading = false;
+        state.posts = action.payload;
     }
 }
 })
