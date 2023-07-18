@@ -14,7 +14,6 @@ useEffect(() => {
 dispatch(getAllPosts())
 }, [dispatch])
 
-// const allCategory = posts.flatMap(item => item.category)
 
   return (
     <div className="w-full md:max-w-[950px] mx-auto py-5 flex gap-5 flex-col">
