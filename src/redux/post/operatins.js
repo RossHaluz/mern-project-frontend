@@ -110,7 +110,6 @@ export const getCategoryPosts = createAsyncThunk('api/getCategoryPosts', async(c
     })
 
     export const getSearchPosts = createAsyncThunk('api/getSearchPosts', async(query, {rejectWithValue}) => {
-        console.log(query);
         try {
             const {data} = await axios.get(`/api/posts/search-posts?query=${query}`);
             return data;
