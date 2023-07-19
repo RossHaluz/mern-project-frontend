@@ -15,9 +15,11 @@ export const createPost = createAsyncThunk('post/createPost', async (params, {re
     }
 })
 
-export const getAllPosts = createAsyncThunk('api/getAllPosts', async (__, {rejectWithValue}) => {
+export const getAllPosts = createAsyncThunk('api/getAllPosts', async (pagination, {rejectWithValue}) => {
+    console.log(pagination);
+    const {getPage: page, getLimit: limit } = pagination;
     try {
-        const {data} = await axios.get('/api/posts');
+        const {data} = await axios.get(`/api/posts?page=${page}&limit=${limit}`);
         return data
     } catch (error) {
         return rejectWithValue(error.message)

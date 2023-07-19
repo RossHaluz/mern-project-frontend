@@ -3,6 +3,8 @@ import { createPost, getAllPosts, getPost, getUserPosts, delateUserPost, updateP
 
 const initialState = {
     posts: [],
+    currentPage: null,
+    currentLimit: null,
     post: null,
     favoritePosts: [],
     popularePosts: [],
@@ -28,6 +30,8 @@ extraReducers: {
     [getAllPosts.fulfilled](state, action){
         state.loading = false;
         state.posts = action.payload.posts;
+        state.currentPage = action.payload.meta.page;
+        state.currentLimit = action.payload.meta.limit;
         state.popularePosts = action.payload.popularPosts;
     },
     [getAllPosts.rejected](state, action){},
@@ -85,7 +89,7 @@ extraReducers: {
     },
     [getFavoritePosts.fulfilled](state, action){
         state.loading = false;
-        state.favoritePosts = action.payload;
+        state.favoritePosts = action.payload.posts;
     },
     [getFavoritePosts.rejected](state, action){
         console.log(action.payload);
@@ -95,7 +99,7 @@ extraReducers: {
     },
     [getCategoryPosts.fulfilled](state, action){
         state.loading = false;
-        state.posts = action.payload;
+        state.posts = action.payload.posts;
     },
     [getSearchCategory.pending](state, action){
         state.loading = true;

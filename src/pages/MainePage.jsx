@@ -5,14 +5,23 @@ import PostsList from "../components/PostsList";
 import PopularPost from "../components/PopularPost";
 import Category from "components/Category";
 import PostsSearch from "components/PostsSearch";
+import { useSearchParams } from "react-router-dom";
 
 const MainePage = () => {
 const dispatch = useDispatch();
-const {posts, popularePosts} = useSelector(state => state.post)
+const {posts, popularePosts, currentPage, currentLimit} = useSelector(state => state.post);
+const [query, setQuery] = useSearchParams();
+const getPage = query.get('page') || "";
+const getLimit = query.get('limit') || "";
+
 
 useEffect(() => {
-dispatch(getAllPosts())
-}, [dispatch])
+  setQuery(currentPage ? {page: currentPage, limit: currentLimit} : {}) 
+dispatch(getAllPosts({getPage, getLimit}))
+}, [dispatch, getPage, getLimit, currentLimit, currentPage, setQuery])
+
+console.log(getPage);
+console.log(getLimit);
 
 
   return (
