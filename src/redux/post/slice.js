@@ -4,7 +4,7 @@ import { createPost, getAllPosts, getPost, getUserPosts, delateUserPost, updateP
 const initialState = {
     posts: [],
     currentPage: null,
-    currentLimit: null,
+    totalPages: null,
     post: null,
     favoritePosts: [],
     popularePosts: [],
@@ -31,8 +31,8 @@ extraReducers: {
         state.loading = false;
         state.posts = action.payload.posts;
         state.currentPage = action.payload.meta.page;
-        state.currentLimit = action.payload.meta.limit;
         state.popularePosts = action.payload.popularPosts;
+        state.totalPages = action.payload.meta.totalPages;
     },
     [getAllPosts.rejected](state, action){},
     [getPost.pending](state, action){

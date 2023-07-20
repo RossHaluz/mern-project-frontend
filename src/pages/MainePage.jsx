@@ -9,19 +9,15 @@ import { useSearchParams } from "react-router-dom";
 
 const MainePage = () => {
 const dispatch = useDispatch();
-const {posts, popularePosts, currentPage, currentLimit} = useSelector(state => state.post);
-const [query, setQuery] = useSearchParams();
+const {posts, popularePosts} = useSelector(state => state.post);
+const [query] = useSearchParams();
 const getPage = query.get('page') || "";
-const getLimit = query.get('limit') || "";
 
 
 useEffect(() => {
-  setQuery(currentPage ? {page: currentPage, limit: currentLimit} : {}) 
-dispatch(getAllPosts({getPage, getLimit}))
-}, [dispatch, getPage, getLimit, currentLimit, currentPage, setQuery])
+dispatch(getAllPosts({getPage}))
+}, [dispatch, getPage])
 
-console.log(getPage);
-console.log(getLimit);
 
 
   return (

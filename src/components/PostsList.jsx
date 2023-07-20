@@ -1,4 +1,5 @@
 // import { useState } from "react"
+import Pagination from "./Pagination"
 import PostItem from "./PostItem"
 import { Link } from "react-router-dom"
 
@@ -17,6 +18,8 @@ const PostsList = ({posts}) => {
   {posts?.map(item => item && <PostItem key={item._id} item={item}/>
   )}
 </ul>
+
+<Pagination />
 </div>
 }
 
