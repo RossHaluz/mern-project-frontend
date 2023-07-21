@@ -19,6 +19,10 @@ const onSubmitForm = e => {
 }
 
 useEffect(() => {
+  if(!serchQuery){
+    return
+  }
+  
 dispatch(getSearchPosts(serchQuery))
 }, [dispatch, serchQuery])
 

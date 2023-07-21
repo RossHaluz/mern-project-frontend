@@ -24,8 +24,6 @@ const PostItem = ({ item }) => {
   const [isFavorite, setIsFavorite] = useState(favorites?.includes(user?._id));
   const navigate = useNavigate();
 
-  console.log(imgUrl);
-
   const addFavoritePost = id => {
     if(!isUserLogin){
       toast.error("Щоб додати пост, ви маєте зайти у свій кабінет")

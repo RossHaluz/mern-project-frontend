@@ -48,7 +48,7 @@ const CategoryItem = ({ item }) => {
     {imgUrl && (
       <div className="p-2 rounded-lg flex h-[11rem] mb:h-80">
         <img
-          src={`https://blog-t4w3.onrender.com/${imgUrl}`}
+          src={imgUrl}
           alt={imgUrl.name}
           className="object-contain rounded-2xl md:object-cover w-full"
         />
