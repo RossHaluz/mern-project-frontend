@@ -5,6 +5,8 @@ const initialState = {
     posts: [],
     currentPage: null,
     totalPages: null,
+    totalPosts: null,
+    limit: null,
     post: null,
     favoritePosts: [],
     popularePosts: [],
@@ -14,7 +16,12 @@ const initialState = {
 const postSlice = createSlice({
 name: 'post',
 initialState,
-reducers: {},
+reducers: {
+    changeCurrentPage(state, action) {
+        console.log(action.payload);
+        state.currentPage = action.payload;
+    }
+},
 extraReducers: {
     [createPost.pending](state){
         state.loading = true;
@@ -28,11 +35,14 @@ extraReducers: {
         state.loading = true;
     },
     [getAllPosts.fulfilled](state, action){
+        console.log(action.payload);
         state.loading = false;
         state.posts = action.payload.posts;
         state.currentPage = action.payload.meta.page;
         state.popularePosts = action.payload.popularPosts;
         state.totalPages = action.payload.meta.totalPages;
+        state.limit = action.payload.meta.limit;
+        state.totalPosts = action.payload.meta.totalPosts;
     },
     [getAllPosts.rejected](state, action){},
     [getPost.pending](state, action){
@@ -117,5 +127,7 @@ extraReducers: {
     }
 }
 })
+
+export const {changeCurrentPage} = postSlice.actions;
 
 export const postReducer = postSlice.reducer;

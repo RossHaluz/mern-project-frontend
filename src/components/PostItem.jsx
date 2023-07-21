@@ -24,6 +24,8 @@ const PostItem = ({ item }) => {
   const [isFavorite, setIsFavorite] = useState(favorites?.includes(user?._id));
   const navigate = useNavigate();
 
+  console.log(imgUrl);
+
   const addFavoritePost = id => {
     if(!isUserLogin){
       toast.error("Щоб додати пост, ви маєте зайти у свій кабінет")
@@ -48,7 +50,7 @@ const PostItem = ({ item }) => {
         {imgUrl && (
           <div className="p-2 rounded-lg flex h-[11rem] mb:h-80">
             <img
-              src={`https://blog-t4w3.onrender.com/${imgUrl}`}
+              src={imgUrl}
               alt={imgUrl.name}
               className="object-contain rounded-2xl md:object-cover w-full"
             />

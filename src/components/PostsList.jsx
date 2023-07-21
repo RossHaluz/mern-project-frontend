@@ -1,9 +1,8 @@
-// import { useState } from "react"
 import Pagination from "./Pagination"
 import PostItem from "./PostItem"
 import { Link } from "react-router-dom"
 
-const PostsList = ({posts}) => {
+const PostsList = ({posts, setQuery, totalPages, currentPage}) => {
 
   return  <div className="w-full flex flex-col gap-6 md:basis-4/5">
   <ul className="flex justify-center gap-3 flex-wrap md:hidden">
@@ -19,7 +18,7 @@ const PostsList = ({posts}) => {
   )}
 </ul>
 
-<Pagination />
+<Pagination setQuery={setQuery} totalPages={totalPages} currentPage={currentPage}/>
 </div>
 }
 

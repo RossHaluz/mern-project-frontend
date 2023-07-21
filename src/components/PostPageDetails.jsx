@@ -36,7 +36,7 @@ const PostPageDetails = ({post, id: postId}) => {
   const {title, text, imgUrl, username, createdAt, views, comments} = post;
   return <div className='flex flex-col gap-5 py-3'>{!loading && <div className='mt-4'>
   {imgUrl && <div className='flex h-[11rem] mb:h-80'>
-    <img src={`https://blog-t4w3.onrender.com/${imgUrl}`} alt={imgUrl.name} className='rounded-2xl object-contain w-full'/>
+    <img src={imgUrl} alt={imgUrl.name} className='rounded-2xl object-contain w-full'/>
   </div>}
   <div className='flex justify-between items-center mt-5'>
     <span className='text-xs text-[#030303] opacity-50'>автор: {username}</span>

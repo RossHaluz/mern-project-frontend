@@ -9,10 +9,9 @@ import { useSearchParams } from "react-router-dom";
 
 const MainePage = () => {
 const dispatch = useDispatch();
-const {posts, popularePosts} = useSelector(state => state.post);
-const [query] = useSearchParams();
+const {posts, popularePosts, totalPages, currentPage} = useSelector(state => state.post);
+const [query, setQuery] = useSearchParams();
 const getPage = query.get('page') || "";
-
 
 useEffect(() => {
 dispatch(getAllPosts({getPage}))
@@ -24,7 +23,7 @@ dispatch(getAllPosts({getPage}))
     <div className="w-full md:max-w-[950px] mx-auto py-5 flex gap-5 flex-col">
        {posts.length > 0 && <PostsSearch/>}
       <div className="flex justify-between md:gap-8 w-full">
-  {posts.length > 0  ? <PostsList posts={posts}/> : <h2 className="m-auto">Наразі постів не знайдено...</h2>}
+  {posts.length > 0  ? <PostsList posts={posts} setQuery={setQuery} totalPages={totalPages} currentPage={currentPage}/> : <h2 className="m-auto">Наразі постів не знайдено...</h2>}
 
 {posts.length > 0 && <div className="flex flex-col md:w-1/5">
  <div className="hidden md:block mb-[30px]">
