@@ -10,10 +10,6 @@ const Pagination = ({setQuery, totalPages, currentPage}) => {
   return <div>
   <ReactPaginate
   breakLabel="..."
-  onPageActive={window.scrollTo({
-   top: 0,
-   behavior: 'smooth',
-  })}
   initialPage={currentPage}
   nextLabel={
    <span className='p-3 flex items-center justify-center bg-gray-400 rounded-md text-white font-bold'>
@@ -21,6 +17,10 @@ const Pagination = ({setQuery, totalPages, currentPage}) => {
    </span>
   }
   onPageChange={handlePageClick}
+  onPageActive={window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+   })}
   pageRangeDisplayed={3}
   pageCount={totalPages}
   previousLabel={

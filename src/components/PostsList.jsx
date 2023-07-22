@@ -14,8 +14,7 @@ const PostsList = ({posts, setQuery, totalPages, currentPage}) => {
   </ul>
 
   <ul className="flex flex-col gap-10">
-  {posts?.map(item => item && <PostItem key={item._id} item={item}/>
-  )}
+  {posts?.map(item => item && <PostItem key={item._id} item={item}/>)}
 </ul>
 
 <Pagination setQuery={setQuery} totalPages={totalPages} currentPage={currentPage}/>

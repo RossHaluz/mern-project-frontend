@@ -31,13 +31,13 @@ const PostItem = ({ item }) => {
       return;
     }
 
-    dispatch(setFavoritePost(id))
+    dispatch(() => setFavoritePost(id))
     setIsFavorite(true)
     toast.success('Пост доданий у збережені')
   }
 
-  const removeFavoritePost = id => {
-    dispatch(removeFromFavorite(id))
+  const removeFavoritePost =  id => {
+    dispatch(() => removeFromFavorite(id))
     setIsFavorite(false)
     toast.error('Пост видалений із збережених')
   }

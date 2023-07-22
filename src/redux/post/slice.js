@@ -35,7 +35,6 @@ extraReducers: {
         state.loading = true;
     },
     [getAllPosts.fulfilled](state, action){
-        console.log(action.payload);
         state.loading = false;
         state.posts = action.payload.posts;
         state.currentPage = action.payload.meta.page;
@@ -84,7 +83,7 @@ extraReducers: {
     },
     [setFavoritePost.fulfilled](state, action){
         state.loading = false
-        state.favoritePosts.push(action.payload)
+        state.favoritePosts = [...state.favoritePosts, action.payload]
 
     },
     [removeFromFavorite.pending](state, action){
