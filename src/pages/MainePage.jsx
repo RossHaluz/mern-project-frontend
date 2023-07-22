@@ -33,10 +33,10 @@ dispatch(getAllPosts({getPage}))
          {posts.length > 0 && posts?.flatMap(item => item.category).filter((item, idx, array) => array.indexOf(item) === idx).map(item => <Category key={item} item={item}/>)}
         </div>}
 
-        <div className="hidden md:block basis-1/5">
+{!loading && <div className="hidden md:block basis-1/5">
           <h3 className="text-xs uppercase text-[#030303]">Популярні</h3>
          {!!popularePosts && popularePosts.map(post => <PopularPost key={post._id} post={post}/>)}
-        </div>
+        </div>}
         </div>}
 
       </div>
