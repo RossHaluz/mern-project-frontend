@@ -1,14 +1,18 @@
 import {BsChevronLeft, BsChevronRight} from 'react-icons/bs'
 import ReactPaginate from 'react-paginate'
+import { useSelector } from 'react-redux'
 
-const Pagination = ({setQuery, totalPages, currentPage}) => {
+const Pagination = ({setQuery, getQuery, totalPages, currentPage}) => {
+  const {totalPosts} = useSelector(state => state.post);
+
+  console.log(totalPosts);
 
   const handlePageClick = ({selected}) => {
-    setQuery({page: selected + 1})
+    setQuery({page: selected + 1, query: getQuery})
   }
 
   return <div>
-  <ReactPaginate
+    {totalPosts > 12 &&  <ReactPaginate
   breakLabel="..."
   initialPage={currentPage}
   nextLabel={
@@ -31,7 +35,7 @@ const Pagination = ({setQuery, totalPages, currentPage}) => {
   containerClassName='flex items-center justify-center mt-8 mb-4 gap-4'
   pageClassName='block border border-solid border-gray-300 hover:bg-gray-400 hover:text-white w-10 h-10 flex items-center justify-center rounded-md'
   activeClassName='bg-gray-400 text-white' 
-  /></div> 
+  />}</div> 
 }
 
 export default Pagination

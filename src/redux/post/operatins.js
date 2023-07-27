@@ -16,7 +16,7 @@ export const createPost = createAsyncThunk('post/createPost', async (params, {re
 })
 
 export const getAllPosts = createAsyncThunk('api/getAllPosts', async (pagination, {rejectWithValue}) => {
-    const {getPage: page  } = pagination;
+    const {getPage: page} = pagination;
     try {
         const {data} = await axios.get(`/api/posts?page=${page}&limit=12`);
         return data

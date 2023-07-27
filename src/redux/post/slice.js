@@ -37,11 +37,11 @@ extraReducers: {
     [getAllPosts.fulfilled](state, action){
         state.loading = false;
         state.posts = action.payload.posts;
-        state.currentPage = action.payload.meta.page;
+        state.currentPage = action.payload.meta?.page;
         state.popularePosts = action.payload.popularPosts;
-        state.totalPages = action.payload.meta.totalPages;
-        state.limit = action.payload.meta.limit;
-        state.totalPosts = action.payload.meta.totalPosts;
+        state.totalPages = action.payload.meta?.totalPages;
+        state.limit = action.payload.meta?.limit;
+        state.totalPosts = action.payload.meta?.totalPosts;
     },
     [getAllPosts.rejected](state, action){},
     [getPost.pending](state, action){
@@ -121,8 +121,10 @@ extraReducers: {
         state.loading = true;
     },
     [getSearchPosts.fulfilled](state, action){
+        console.log(action.payload.length);
         state.loading = false;
         state.posts = action.payload;
+        state.totalPosts = action.payload.length;
     }
 }
 })
