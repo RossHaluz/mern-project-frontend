@@ -46,7 +46,7 @@ const PostItem = ({ item }) => {
     <li className="flex flex-col basis-1/4 gap-5 flex-grow border-solid border-2 p-3 rounded-lg relative">
       <Link to={`/${id}`}>
         {imgUrl && (
-          <div className="p-2 rounded-lg flex h-[22rem] mb:h-80">
+          <div className="p-2 rounded-lg flex h-[13rem] md:h-[22rem]">
             <img
               src={imgUrl}
               alt={imgUrl.name}

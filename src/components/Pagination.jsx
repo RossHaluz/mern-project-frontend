@@ -5,8 +5,6 @@ import { useSelector } from 'react-redux'
 const Pagination = ({setQuery, getQuery, totalPages, currentPage}) => {
   const {totalPosts} = useSelector(state => state.post);
 
-  console.log(totalPosts);
-
   const handlePageClick = ({selected}) => {
     setQuery({page: selected + 1, query: getQuery})
   }
